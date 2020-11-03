@@ -25,6 +25,9 @@ export default function Header() {
                         <li className="mr-5">
                             <NavLink to="/gallery" activeClassName="underline text-blue-200">Gallery</NavLink>
                         </li>
+                        <li className="mr-5">
+                            <NavLink to="/tensorflow" activeClassName="underline text-blue-200">TensorFlow</NavLink>
+                        </li>
                 </ul>
                 <ul className="flex justify-between px-10">
                     <li className="mr-5">

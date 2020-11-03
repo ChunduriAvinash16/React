@@ -7,18 +7,29 @@ const secret=process.env.REACT_APP_UNSPLASH_KEY
 export default function useFetchimage(page,searchTerm) {
     const [Images, setImages] = useState([]);
     const [errors, setErrors] = useState([]);
-    const [isLoding, setisLoding] = useState(false)
+    const [isLoding, setisLoding] = useState(false);
 
     useEffect(() => {
-        const url=searchTerm===null?"photos" : "search/photos";
         setisLoding(true);
-        Axios.get(`${api}/${url}?client_id=${secret}&page=${page}&query=${searchTerm}`)
+        const url=searchTerm===null? "photos?" : `search/photos?query=${searchTerm}&`;
+        Axios.get(`${api}/${url}client_id=${secret}&page=${page}`)
         .then((res)=>{
-        (searchTerm)?(page>1)?setImages([...Images,...res.data.results]):setImages([...res.data.results]):setImages([...Images,...res.data]);
-        setisLoding(false)
+            console.log(searchTerm);
+        if(searchTerm===null){
+            setImages([...res.data]);
+        }else{
+            if(page>1){
+                console.log("inside no",page);
+                setImages([...Images,...res.data.results])
+            }else{
+                console.log(page);
+                setImages([...res.data.results])
+            }
+        }
+        setisLoding(false);
         })
         .catch((e)=>{
-            setErrors(e)
+            setErrors(["Unable to fetch"])
             setisLoding(false);   
         });
     

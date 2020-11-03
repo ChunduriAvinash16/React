@@ -3,6 +3,7 @@ import Gallery from "../../../pages/Gallery";
 import Home from "../../../pages/Home";
 import Login from "../../../pages/Login";
 import Signup from '../../../pages/Signup';
+import Tensorflow from '../../../pages/tensorflow';
 
 export default[
     {
@@ -26,5 +27,9 @@ export default[
         path:"/signup",
         exact:true,
         component:()=><Signup/>
+    },{
+        path:"/tensorflow",
+        component:()=><Tensorflow/>,
+        protected:null
     }
 ]

@@ -76,7 +76,12 @@ export default function Images() {
     const debounce=useDebounce();
     function handleInput(e) {
         const text=e.target.value;
-       debounce(()=>setsearchTerm(text))
+        if(text===""){
+            debounce(()=>setsearchTerm(null))
+        }
+        else{
+        debounce(()=>setsearchTerm(text))
+        }
     }
 
     return( 
