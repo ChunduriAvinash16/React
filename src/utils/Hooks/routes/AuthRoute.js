@@ -15,6 +15,6 @@ export default function AuthRoute({children,...rest}) {
         </motion.div>
     </Route>);
     }
-        return <Redirect to="/login" />;
+        return  <Redirect to="/login" />;
 
 }

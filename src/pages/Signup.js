@@ -41,7 +41,7 @@ export default function Signup() {
                     </div>
                     <div className="w-full my-10">
                         <button type="submit" className="p-2 rounded shadow border-blue-100 w-full bg-gradient-to-r from-gray-900 to-blue-300 text-white">
-                            Signup
+                            Sign up
                         </button>
                     </div>
                 </Form>
